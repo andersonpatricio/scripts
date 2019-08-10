@@ -6,5 +6,7 @@ Here you will find all the scripts that I use on a daily basis, and in my articl
   <b>Check-Media.ps1</b><br>
   Provide the filename and checksum and the script will validate if they match. There is an optional parameter to specify the algorithm (by default is SHA1).
   Link: 
+  <b>AA-Runbook using AZ Modules</b><br>
+  Sampe Runbook that connects using AzureRunAsAccount using AZ Module and lists all resources. It is the default runbook updated with AZ modules.
 
-Latest update: 03-August-2019
+Latest update: 10-August-2019
