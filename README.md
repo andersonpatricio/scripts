@@ -9,5 +9,8 @@ Here you will find all the scripts that I use on a daily basis, and in my articl
   <br><br>
   <b>AA-Runbook using AZ Modules</b><br>
   Sampe Runbook that connects using AzureRunAsAccount using AZ Module and lists all resources. It is the default runbook updated with AZ modules.
+  <br><br>
+  <b>azFWMaintenance.ps1</b><br>
+  Script to stop and start Azure Firewall using PowerShell and can be easily ported to Azure Automation (Runbooks).
 
 Latest update: 10-August-2019
