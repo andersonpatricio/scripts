@@ -12,5 +12,8 @@ Here you will find all the scripts that I use on a daily basis, and in my articl
   <br><br>
   <b>azFWMaintenance.ps1</b><br>
   Script to stop and start Azure Firewall using PowerShell and can be easily ported to Azure Automation (Runbooks).
-
+<br><br>
+<b>VM-anFeature.ps1</b><br>
+Script to enable the network accelerated feature in a provided VM. The script will stop and start the VM with an interval of 180 seconds.
+<br><br>
 Latest update: 10-August-2019
