@@ -16,4 +16,7 @@ Here you will find all the scripts that I use on a daily basis, and in my articl
 <b>VM-anFeature.ps1</b><br>
 Script to enable the network accelerated feature in a provided VM. The script will stop and start the VM with an interval of 180 seconds.
 <br><br>
-Latest update: 01-September-2019
+<b>SwitchVMVNet.ps1</b><br>
+Script to move a VM to a new Virtual Network/Subnet. The user has to enter three (3) parameters: Virtual Machine Name, destination Virtual Network, and destination Subnet.
+<br><br>
+Latest update: 10-October-2019
