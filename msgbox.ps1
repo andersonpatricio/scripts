@@ -1,3 +1,7 @@
+#
+# Function by Anderson Patricio (AP6) - anderson@patricio.ca 
+# Source: github.com/andersonpatricio
+#
 Function Msgbox($caption,$message,$type,$MaxSize){
     if ($MaxSize -eq $null) { $MaxSize = 66}
     $vDynamicSpace = ($MaxSize - ($message).Length)
