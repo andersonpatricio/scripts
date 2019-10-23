@@ -4,8 +4,10 @@
 #
 Function Msgbox($caption,$message,$type,$MaxSize){
     if ($MaxSize -eq $null) { $MaxSize = 66}
-    $vDynamicSpace = ($MaxSize - ($message).Length)
-    $vDynamicSpace = $vSpaces * $vDynamicSpace
+    $sCaption = $caption.Length
+    $sMessage = $Message.Length
+    $vDynamicSpace = $MaxSize - ($sCaption + $sMessage)
+    $vDynamicSpace = " " * $vDynamicSpace
     Write-Host $caption $message $vDynamicSpace " [" -NoNewline
     if ($type -eq '0') {
         Write-Host -ForegroundColor Green " OK " -NoNewline
@@ -14,5 +16,5 @@ Function Msgbox($caption,$message,$type,$MaxSize){
     }Else{
         Write-Host -ForegroundColor Red " ERROR " -NoNewline
     }
-    Write-Host "]" -NoNewline
+    Write-Host "]" 
 }
