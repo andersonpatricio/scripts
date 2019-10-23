@@ -3,7 +3,7 @@
 # Source: github.com/andersonpatricio
 #
 Function Msgbox($caption,$message,$type,$MaxSize){
-    if ($MaxSize -eq $null) { $MaxSize = 66}
+    if ($MaxSize -eq $null) { $MaxSize = 126}
     $sCaption = $caption.Length
     $sMessage = $Message.Length
     If (($sCaption + $sMessage) -ge $MaxSize) {
