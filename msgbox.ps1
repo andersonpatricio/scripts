@@ -6,6 +6,9 @@ Function Msgbox($caption,$message,$type,$MaxSize){
     if ($MaxSize -eq $null) { $MaxSize = 66}
     $sCaption = $caption.Length
     $sMessage = $Message.Length
+    If (($sCaption + $sMessage) -ge $MaxSize) {
+        $MaxSize = ($sCaption + $sMessage) + 20
+    }
     $vDynamicSpace = $MaxSize - ($sCaption + $sMessage)
     $vDynamicSpace = " " * $vDynamicSpace
     Write-Host $caption $message $vDynamicSpace " [" -NoNewline
