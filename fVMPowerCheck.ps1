@@ -1,5 +1,6 @@
 #
-# 
+# Check-Media.ps1 by Anderson Patricio (anderson@patricio.ca)
+# https://github.com/andersonpatricio
 #
 Function VMPowerCheck($VMName,$Status){
     If ($status -eq "on"){
