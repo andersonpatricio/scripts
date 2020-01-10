@@ -61,16 +61,17 @@ Function Msgbox($caption,$message,$type,$MaxSize){
 $vResourceGroupname = "ResourceGroupName"
 $vAutomationAccountName = "svc-azdev-automation" 
 $vContainerName = "storageaccount-security-automated"
+#I'm retrieving the storage account name from a Azure Automation variable. You should add that or specify in the code.
 $vaStorageAccount = Get-AzAutomationVariable $vAutomationAccountName -Name "StorageAccount" -ResourceGroupName $vResourceGroupname 
 $StartTime = Get-Date
 $EndTime = $startTime.AddHours(1.0)
 $stgAccount = Get-AzStorageAccount -Name $vaStorageAccount.value -ResourceGroupName $vResourceGroupname 
 $SASToken = New-AzStorageAccountSASToken -Service Blob -ResourceType Container,Object -Permission "racwdlup" -startTime $StartTime -ExpiryTime $EndTime -Context $StgAccount.Context
 $stgcontext = New-AzStorageContext -storageAccountName $stgAccount.StorageAccountName -SasToken $SASToken
-$tmpBlobCopyOperation = Get-AzStorageBlobContent -Container $vContainerName -Blob ("Hopp-PublicIPs.json") -Destination (Get-Location).path -Context $stgcontext
+$tmpBlobCopyOperation = Get-AzStorageBlobContent -Container $vContainerName -Blob ("PublicIPs.json") -Destination (Get-Location).path -Context $stgcontext
 
 #Global Variables
-$JSONPublicIPs = Get-Content -Raw -Path ((Get-Location).Path + "\Hopp-PublicIPs.json") | ConvertFrom-Json
+$JSONPublicIPs = Get-Content -Raw -Path ((Get-Location).Path + "\PublicIPs.json") | ConvertFrom-Json
 $vEndPoint = "Microsoft.Storage"
 Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
 
@@ -95,7 +96,7 @@ ForEach ($SingleStorageAccount in $StorageAccounts){
     If ($tmp) {Msgbox "Storage Account (Default Action): " "Configured to Deny (required when using Virtual Network" 0}
     $tmp = Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $SingleStorageAccount.ResourceGroupName -Name $SingleStorageAccount.StorageAccountName -IPRule $JSONPublicIPs -ErrorVariable tmpErrorVar -ErrorAction SilentlyContinue
     If ($tmp) {
-        Msgbox "Storage Account (Public IPs Action): " "All IPs from the Hoopp-PublicIPs.json were published" 0
+        Msgbox "Storage Account (Public IPs Action): " "All IPs from the PublicIPs.json were published" 0
     } Else {
             If ($tmpErrorVar) { 
                 If ($tmpErrorVar[0].Exception.Message.Contains("networkAcls.virtualNetworkRules[*].id(unique)")) {
