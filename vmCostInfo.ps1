@@ -37,6 +37,7 @@ $CurrentYear = Get-Date -Format "yyyy"
 $TimeSchedule = @{}
 $TimeSchedule.Current = $CurrentYear.ToString() + $CurrentMonth.ToString()
 $PreviousMonth = $CurrentMonth - 1
+$PreviousYear = $CurrentYear - 1
 If ($PreviousMonth -eq 0) {$PreviousMonth=12; $PreviousYear=$CurrentYear - 1}
 $TimeSchedule.Previous = $PreviousYear.ToString() + $PreviousMonth.toString()
 
