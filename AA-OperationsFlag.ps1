@@ -14,7 +14,7 @@ try
     $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
     Connect-AzAccount `
         -ServicePrincipal `
-        -Subscription 'dev.psg.hoopp.azure' `
+        -Subscription 'subscription.azure' `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
         -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
